@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Button,
   Card,
@@ -14,9 +15,14 @@ type CardProps = {
   name: string;
   species: string;
   status: string;
+  idCharacter: number;
 }
 
-const CardComponent: React.FC<CardProps> = ({ image, name, species, status }) => {
+const CardComponent: React.FC<CardProps> = ({ image, name, species, status, idCharacter }) => {
+  const navigate = useNavigate();
+  const handleClick = (id: number) => {
+    navigate(`/character/${id}`)
+  }
   return (
     <Card >
       <CardMedia
@@ -38,7 +44,7 @@ const CardComponent: React.FC<CardProps> = ({ image, name, species, status }) =>
         </Typography>
       </CardContent>
       <CardActions >
-        <Button fullWidth variant='contained'>Learn More</Button>
+        <Button fullWidth variant='contained' onClick={() => handleClick(idCharacter)}>Learn More</Button>
       </CardActions>
     </Card>
   )
