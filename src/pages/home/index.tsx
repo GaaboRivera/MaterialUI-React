@@ -46,14 +46,13 @@ export const HomePage: React.FC<{}> = () => {
               <Pagination size="large" variant="outlined" color="primary" count={count} page={page} onChange={handleChange} />
             </Grid>
             {allCharacters?.map((character) => {
-              return <Grid item xs={3}>
+              return <Grid key={character.id} item xs={3}>
                 <CardComponent
-                  key={character.id}
                   image={character.image}
                   name={character.name}
                   species={character.species}
                   status={character.status}
-                  idCharacter={character.id}
+                  id={character.id}
                 />
               </Grid>
             })}
