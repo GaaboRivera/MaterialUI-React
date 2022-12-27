@@ -5,7 +5,7 @@ import { ICharacter } from './interfaces/character.interface';
 import { Box, Container, Grid, Typography, Card, CardMedia, Chip } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
 
-export const CharacterPage: React.FC<{}> = () => {
+const CharacterPage: React.FC<{}> = () => {
     const { id } = useParams()
 
     const [loading, setLoading] = React.useState<boolean>(true)
@@ -43,3 +43,5 @@ export const CharacterPage: React.FC<{}> = () => {
         </Container>
     </Box >
 }
+
+export default CharacterPage
